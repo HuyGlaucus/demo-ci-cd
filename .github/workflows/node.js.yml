@@ -6,24 +6,32 @@ name: Node.js CI
 on:
   push:
     branches: [ "main" ]
-    
+    #Hành động
 jobs:
+#CI
   test:
     runs-on: ubuntu-latest
+    # máy chủ mới
     strategy:
       matrix:
+      #tạo môi trường
         node-version: [16.x, 18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+        # Phiên bản Node.js
     steps:
+    #git clone
     - uses: actions/checkout@v3
+    #Cài node
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    #thực hiện câu lệnh cài nodemodun
     - run: npm install
+    #chạy test
     - run: npm test
+  #CD
   deloy:
     runs-on: ubuntu-latest
     steps:
@@ -37,6 +45,7 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+      # tạo thư mục mới- chép key trong thư mục qua id_rsa - cấp quyền
       - name: deloy code to server
         run: |
           scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -r ../demo-ci-cd ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/html
