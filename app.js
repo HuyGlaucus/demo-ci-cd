@@ -13,7 +13,7 @@ var cli = commandLineArgs([
 ]);
 var location = cli.location;
 console.log(location);
-console.log("hello world 12378");
+console.log("hello world 999");
 
 
 /* Fetch weather data */
