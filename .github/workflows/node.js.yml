@@ -28,6 +28,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Remove folder .git
+        run: rm -rf .git
+      - name: Show project
+        run: ls -la
       - name: Set up SSH key
         run: |
           mkdir -p ~/.ssh
