@@ -11,7 +11,9 @@ var commandLineArgs = require("command-line-args");
 var cli = commandLineArgs([
     { name: "location", alias: "l", type: String, defaultValue: "London" }
 ]);
-var location = cli.parse().location;
+var location = cli.location;
+console.log(location);
+
 
 /* Fetch weather data */
 fetchWeather.fetchWeather(location,
