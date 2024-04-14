@@ -35,4 +35,4 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
       - name: deloy code to server
         run: |
-          scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -r ./demo-ci-cd ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/ec2-user/html
+          scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -r ./demo-ci-cd ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/html
