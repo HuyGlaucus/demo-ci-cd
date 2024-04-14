@@ -8,7 +8,7 @@ on:
     branches: [ "main" ]
     
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -24,3 +24,10 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm test
+  deloy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: deloy code to server
+        run: |
+          scp -o StrictHostKeyChecking=no -i ${{ secrets.SSH_PRIVATE_KEY }} -r ./demo-ci-cd ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:/ec2-user/html
