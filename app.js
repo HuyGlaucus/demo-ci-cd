@@ -14,7 +14,7 @@ var cli = commandLineArgs([
 var location = cli.location;
 console.log(location);
 console.log("hello world 999");
-console.log("hello world 15/04/2025");
+console.log("hello world 15/04/20251");
 
 
 /* Fetch weather data */
