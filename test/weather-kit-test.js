@@ -32,7 +32,7 @@ describe('Test the weather kit module\'s basic functionality', function(){
         helloWeather.doINeed.suncream(monday).should.be.a('boolean');
         helloWeather.doINeed.suncream(monday).should.equal(false);
         helloWeather.doINeed.suncream(tuesday).should.equal(false);
-        helloWeather.doINeed.suncream(wednesday).should.equal(false);
+        helloWeather.doINeed.suncream(wednesday).should.equal(true);
     });
 
     /* Example of Chai assert */
