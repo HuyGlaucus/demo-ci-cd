@@ -48,4 +48,4 @@ jobs:
       # tạo thư mục mới- chép key trong thư mục qua id_rsa - cấp quyền
       - name: deloy code to server
         run: |
-          ssh -i "huycc.pem" ec2-user@ec2-13-213-5-70.ap-southeast-1.compute.amazonaws.com
+          scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa -r ../demo-ci-cd ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }}:~/html
