@@ -14,8 +14,7 @@ var cli = commandLineArgs([
 var location = cli.location;
 console.log(location);
 console.log("hello world 999");
-console.log("hello thay hai CNTT");
-
+console.log("hello thay Tien CNTT");
 
 /* Fetch weather data */
 fetchWeather.fetchWeather(location,
